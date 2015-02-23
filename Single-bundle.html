@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Authoring libraries | React</title>
+        <title>Single bundle | React</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,8 +19,10 @@
         
     
     
+    <link rel="next" href="./Split-app-and-vendors.html" />
     
-    <link rel="prev" href="./Understanding-chunks.html" />
+    
+    <link rel="prev" href="./Structuring-configuration.html" />
     
 
         
@@ -32,7 +34,7 @@
 
 
         
-    <div class="book" data-level="5.9" data-basepath="." data-revision="1424716550602">
+    <div class="book" data-level="4.2" data-basepath="." data-revision="1424716550602">
     
 
 <div class="book-summary">
@@ -355,7 +357,7 @@
         </li>
     
         
-        <li class="chapter " data-level="4.2" data-path="Single-bundle.html">
+        <li class="chapter active" data-level="4.2" data-path="Single-bundle.html">
             
                 
                     <a href="./Single-bundle.html">
@@ -585,7 +587,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="5.9" data-path="Authoring-libraries.html">
+        <li class="chapter " data-level="5.9" data-path="Authoring-libraries.html">
             
                 
                     <a href="./Authoring-libraries.html">
@@ -694,39 +696,31 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_15">
+                    <section class="normal" id="section-gitbook_23">
                     
-                        <p>Webpack can be handy for packaging your library for general consumption. You can use it to output UMD, a format that&#39;s compatible with various module loaders (CommonJS, AMD) and globals.</p>
-<h2 id="how-can-i-output-umd-for-my-library">How can I output UMD for my library?</h2>
-<p>Especially if you are creating a library, it can be useful to output an UMD version of your library. This can be achieved using the following snippet:</p>
-<pre><code class="lang-javascript">output: {
-    path: <span class="hljs-string">'./dist'</span>,
-    filename: <span class="hljs-string">'mylibrary.js'</span>,
-    libraryTarget: <span class="hljs-string">'umd'</span>,
-    library: <span class="hljs-string">'MyLibrary'</span>,
-},
-</code></pre>
-<p>In order to avoid bundling big dependencies like React, you&#39;ll want to use a configuration like this in addition:</p>
-<pre><code class="lang-javascript">externals: {
-    react: <span class="hljs-string">'react'</span>,
-    <span class="hljs-string">'react/addons'</span>: <span class="hljs-string">'react'</span>
-},
-</code></pre>
-<h2 id="how-can-i-output-a-minified-version-of-my-library">How can I output a minified version of my library?</h2>
-<p>Here&#39;s the basic idea:</p>
-<pre><code class="lang-javascript">output: {
-    path: <span class="hljs-string">'./dist'</span>,
-    filename: <span class="hljs-string">'awesomemular.min.js'</span>,
-    libraryTarget: <span class="hljs-string">'umd'</span>,
-    library: <span class="hljs-string">'Awesomemular'</span>,
-},
-plugins: [
-    <span class="hljs-keyword">new</span> webpack.optimize.UglifyJsPlugin({
-        compress: {
-            warnings: <span class="hljs-literal">false</span>
-        },
-    }),
-]
+                        <p>Lets have a look at the simplest setup you can create for your application. Use a single bundle when:</p>
+<ul>
+<li>You have a small application</li>
+<li>You will rarely update the application</li>
+<li>You are not too concerned about perceived initial loading time</li>
+</ul>
+<p><em>webpack.production.config.js</em></p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">'path'</span>);
+<span class="hljs-keyword">var</span> config = {
+  entry: path.resolve(__dirname, <span class="hljs-string">'app/main.js'</span>),
+  output: {
+    path: path.resolve(__dirname, <span class="hljs-string">'dist'</span>),
+    filename: <span class="hljs-string">'bundle.js'</span>
+  },
+  <span class="hljs-built_in">module</span>: {
+    loaders: [{
+      test: <span class="hljs-regexp">/\.js$/</span>,
+      loader: <span class="hljs-string">'babel'</span>
+    }]
+  }
+};
+
+<span class="hljs-built_in">module</span>.exports = config;
 </code></pre>
 
                     
@@ -738,8 +732,10 @@ plugins: [
         </div>
 
         
-        <a href="./Understanding-chunks.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Chunks"><i class="fa fa-angle-left"></i></a>
+        <a href="./Structuring-configuration.html" class="navigation navigation-prev " aria-label="Previous page: Deploy to production"><i class="fa fa-angle-left"></i></a>
         
+        
+        <a href="./Split-app-and-vendors.html" class="navigation navigation-next " aria-label="Next page: Split app and vendors"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

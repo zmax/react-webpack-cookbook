@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Authoring libraries | React</title>
+        <title>Multiple entry points | React</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,8 +19,10 @@
         
     
     
+    <link rel="next" href="./Lazy-loaded-entry-points.html" />
     
-    <link rel="prev" href="./Understanding-chunks.html" />
+    
+    <link rel="prev" href="./Split-app-and-vendors.html" />
     
 
         
@@ -32,7 +34,7 @@
 
 
         
-    <div class="book" data-level="5.9" data-basepath="." data-revision="1424716550602">
+    <div class="book" data-level="4.4" data-basepath="." data-revision="1424716550602">
     
 
 <div class="book-summary">
@@ -387,7 +389,7 @@
         </li>
     
         
-        <li class="chapter " data-level="4.4" data-path="Multiple-entry-points.html">
+        <li class="chapter active" data-level="4.4" data-path="Multiple-entry-points.html">
             
                 
                     <a href="./Multiple-entry-points.html">
@@ -585,7 +587,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="5.9" data-path="Authoring-libraries.html">
+        <li class="chapter " data-level="5.9" data-path="Authoring-libraries.html">
             
                 
                     <a href="./Authoring-libraries.html">
@@ -694,40 +696,45 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_15">
+                    <section class="normal" id="section-gitbook_16">
                     
-                        <p>Webpack can be handy for packaging your library for general consumption. You can use it to output UMD, a format that&#39;s compatible with various module loaders (CommonJS, AMD) and globals.</p>
-<h2 id="how-can-i-output-umd-for-my-library">How can I output UMD for my library?</h2>
-<p>Especially if you are creating a library, it can be useful to output an UMD version of your library. This can be achieved using the following snippet:</p>
-<pre><code class="lang-javascript">output: {
-    path: <span class="hljs-string">'./dist'</span>,
-    filename: <span class="hljs-string">'mylibrary.js'</span>,
-    libraryTarget: <span class="hljs-string">'umd'</span>,
-    library: <span class="hljs-string">'MyLibrary'</span>,
-},
+                        <p>Maybe you are building an application that has multiple urls. An example of this would be a solution where you have two, or more, different URLs responding with different pages. Maybe you have one user page and one admin page. They both share a lot of code, but you do not want to load all the admin stuff for normal users. That is a good scenario for using multiple entry points. A list of use cases could be:</p>
+<ul>
+<li>You have an application with multiple isolated user experiences, but they share a lot of code</li>
+<li>You have a mobile version using less components</li>
+<li>You have a typical user/admin application where you do not want to load all the admin code for a normal user</li>
+</ul>
+<p>Let us create an example with a mobile experience using less components:
+<em>webpack.production.config.js</em></p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">'path'</span>);
+<span class="hljs-keyword">var</span> webpack = <span class="hljs-built_in">require</span>(<span class="hljs-string">'webpack'</span>);
+<span class="hljs-keyword">var</span> node_modules_dir = path.resolve(__dirname, <span class="hljs-string">'node_modules'</span>);
+
+<span class="hljs-keyword">var</span> config = {
+  entry: {
+    app: path.resolve(__dirname, <span class="hljs-string">'app/main.js'</span>),
+    mobile: path.resolve(__dirname, <span class="hljs-string">'app/mobile.js'</span>),
+    vendors: [<span class="hljs-string">'react'</span>] <span class="hljs-comment">// And other vendors</span>
+  },
+  output: {
+    path: path.resolve(__dirname, <span class="hljs-string">'dist'</span>),
+    filename: <span class="hljs-string">'[name].js'</span> <span class="hljs-comment">// Notice we use a variable</span>
+  },
+  <span class="hljs-built_in">module</span>: {
+    loaders: [{
+      test: <span class="hljs-regexp">/\.js$/</span>,
+      exclude: [node_modules_dir],
+      loader: <span class="hljs-string">'babel'</span>
+    }]
+  },
+  plugins: [
+    <span class="hljs-keyword">new</span> webpack.optimize.CommonsChunkPlugin(<span class="hljs-string">'vendors'</span>, <span class="hljs-string">'vendors.js'</span>)
+  ]
+};
+
+<span class="hljs-built_in">module</span>.exports = config;
 </code></pre>
-<p>In order to avoid bundling big dependencies like React, you&#39;ll want to use a configuration like this in addition:</p>
-<pre><code class="lang-javascript">externals: {
-    react: <span class="hljs-string">'react'</span>,
-    <span class="hljs-string">'react/addons'</span>: <span class="hljs-string">'react'</span>
-},
-</code></pre>
-<h2 id="how-can-i-output-a-minified-version-of-my-library">How can I output a minified version of my library?</h2>
-<p>Here&#39;s the basic idea:</p>
-<pre><code class="lang-javascript">output: {
-    path: <span class="hljs-string">'./dist'</span>,
-    filename: <span class="hljs-string">'awesomemular.min.js'</span>,
-    libraryTarget: <span class="hljs-string">'umd'</span>,
-    library: <span class="hljs-string">'Awesomemular'</span>,
-},
-plugins: [
-    <span class="hljs-keyword">new</span> webpack.optimize.UglifyJsPlugin({
-        compress: {
-            warnings: <span class="hljs-literal">false</span>
-        },
-    }),
-]
-</code></pre>
+<p>This configuration will create three files in the <code>dist/</code> folder. <strong>app.js</strong>, <strong>mobile.js</strong> and <strong>vendors.js</strong>. Most of the code in the <strong>mobile.js</strong> file also exists in <strong>app.js</strong>, but that is what we want. We will never load <strong>app.js</strong> and <strong>mobile.js</strong> on the same page.</p>
 
                     
                     </section>
@@ -738,8 +745,10 @@ plugins: [
         </div>
 
         
-        <a href="./Understanding-chunks.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Chunks"><i class="fa fa-angle-left"></i></a>
+        <a href="./Split-app-and-vendors.html" class="navigation navigation-prev " aria-label="Previous page: Split app and vendors"><i class="fa fa-angle-left"></i></a>
         
+        
+        <a href="./Lazy-loaded-entry-points.html" class="navigation navigation-next " aria-label="Next page: Lazy loaded entry points"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
