@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Chunks | React</title>
+        <title>Lazy loaded entry points | React</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,10 @@
         
     
     
-    <link rel="next" href="./Authoring-libraries.html" />
+    <link rel="next" href="./Isomorphic-app.html" />
     
     
-    <link rel="prev" href="./Creating-a-common-bundle.html" />
+    <link rel="prev" href="./Multiple-entry-points.html" />
     
 
         
@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="5.8" data-basepath="." data-revision="1424805375234">
+    <div class="book" data-level="4.5" data-basepath="." data-revision="1424805375234">
     
 
 <div class="book-summary">
@@ -405,7 +405,7 @@
         </li>
     
         
-        <li class="chapter " data-level="4.5" data-path="Lazy-loaded-entry-points.html">
+        <li class="chapter active" data-level="4.5" data-path="Lazy-loaded-entry-points.html">
             
                 
                     <a href="./Lazy-loaded-entry-points.html">
@@ -571,7 +571,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="5.8" data-path="Understanding-chunks.html">
+        <li class="chapter " data-level="5.8" data-path="Understanding-chunks.html">
             
                 
                     <a href="./Understanding-chunks.html">
@@ -696,12 +696,68 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_29">
+                    <section class="normal" id="section-gitbook_14">
                     
-                        <ul>
-<li>Explain how webpack thinks chunks and not files</li>
-<li>What are files to load? And what does webpack create for you? And how?</li>
+                        <p>It is also possible to lazy load entry points. This means that you load parts of your application as they are requested. A typical scenario for this would be that your users only visits specific parts of the application. And an example of that would be twitter.com. You do not always visit your profile page, so why load the code for that? Here is a summary of requirements:</p>
+<ul>
+<li>You have a relatively big application where users can visit different parts of it</li>
+<li>You do care a lot about initial render time</li>
 </ul>
+<p><em>webpack.production.config.js</em></p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">'path'</span>);
+<span class="hljs-keyword">var</span> webpack = <span class="hljs-built_in">require</span>(<span class="hljs-string">'webpack'</span>);
+<span class="hljs-keyword">var</span> node_modules_dir = path.resolve(__dirname, <span class="hljs-string">'node_modules'</span>);
+
+<span class="hljs-keyword">var</span> config = {
+  entry: {
+    app: path.resolve(__dirname, <span class="hljs-string">'app/main.js'</span>),
+    vendors: [<span class="hljs-string">'react'</span>]
+  },
+  output: {
+    path: path.resolve(__dirname, <span class="hljs-string">'dist'</span>),
+    filename: <span class="hljs-string">'app.js'</span>
+  },
+  <span class="hljs-built_in">module</span>: {
+    loaders: [{
+      test: <span class="hljs-regexp">/\.js$/</span>,
+      exclude: [node_modules_dir],
+      loader: <span class="hljs-string">'babel'</span>
+    }]
+  },
+  plugins: [
+    <span class="hljs-keyword">new</span> webpack.optimize.CommonsChunkPlugin(<span class="hljs-string">'vendors'</span>, <span class="hljs-string">'vendors.js'</span>)
+  ]
+};
+
+<span class="hljs-built_in">module</span>.exports = config;
+</code></pre>
+<p>So we are pretty much back where we started with a split application and vendors bundle. You do not really define your lazy dependencies in a configuration, Webpack automatically understands them when analyzing your code. So let us see how we would lazy load a <strong>profile page</strong>:</p>
+<p><em>main.js (Using ES6 syntax)</em></p>
+<pre><code class="lang-javascript">import React from <span class="hljs-string">'react'</span>;
+import Feed from <span class="hljs-string">'./Feed.js'</span>;
+
+<span class="hljs-keyword">class</span> App extends React.Component {
+  constructor() {
+    <span class="hljs-keyword">this</span>.state = { currentComponent: Feed };
+  }
+  openProfile() {
+    <span class="hljs-built_in">require</span>.ensure([], () =&gt; {
+      <span class="hljs-keyword">var</span> Profile = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./Profile.js'</span>);
+      <span class="hljs-keyword">this</span>.setState({
+        currentComponent: Profile
+      });
+    });
+  }
+  render() {
+   <span class="hljs-keyword">return</span> (
+      <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>{this.state.currentComponent()}<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    );
+  }
+}
+React.render(<span class="hljs-tag">&lt;<span class="hljs-title">App</span>/&gt;</span>, document.body);</span>
+</code></pre>
+<p>So this is just an example. You would probably hook this up to a router, but the important part is using <code>require.ensure</code>.</p>
+<p><strong>What is the array on the first argument?</strong>: If you try to lazy load a chunk that depends on an other lazy loaded chunk you can set it as a dependency in the array. Just type in the path to the chunk. E.g. <code>[&#39;./FunnyButton.js&#39;]</code></p>
 
                     
                     </section>
@@ -712,10 +768,10 @@
         </div>
 
         
-        <a href="./Creating-a-common-bundle.html" class="navigation navigation-prev " aria-label="Previous page: Creating a common chunk"><i class="fa fa-angle-left"></i></a>
+        <a href="./Multiple-entry-points.html" class="navigation navigation-prev " aria-label="Previous page: Multiple entry points"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="./Authoring-libraries.html" class="navigation navigation-next " aria-label="Next page: Authoring libraries"><i class="fa fa-angle-right"></i></a>
+        <a href="./Isomorphic-app.html" class="navigation navigation-next " aria-label="Next page: Isomorphic app"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Chunks | React</title>
+        <title>Isomorphic app | React</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,10 @@
         
     
     
-    <link rel="next" href="./Authoring-libraries.html" />
+    <link rel="next" href="./Wing-It-Like-a-Pro.html" />
     
     
-    <link rel="prev" href="./Creating-a-common-bundle.html" />
+    <link rel="prev" href="./Lazy-loaded-entry-points.html" />
     
 
         
@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="5.8" data-basepath="." data-revision="1424805375234">
+    <div class="book" data-level="4.6" data-basepath="." data-revision="1424805375234">
     
 
 <div class="book-summary">
@@ -421,7 +421,7 @@
         </li>
     
         
-        <li class="chapter " data-level="4.6" data-path="Isomorphic-app.html">
+        <li class="chapter active" data-level="4.6" data-path="Isomorphic-app.html">
             
                 
                     <a href="./Isomorphic-app.html">
@@ -571,7 +571,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="5.8" data-path="Understanding-chunks.html">
+        <li class="chapter " data-level="5.8" data-path="Understanding-chunks.html">
             
                 
                     <a href="./Understanding-chunks.html">
@@ -696,12 +696,33 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_29">
+                    <section class="normal" id="section-gitbook_12">
                     
-                        <ul>
-<li>Explain how webpack thinks chunks and not files</li>
-<li>What are files to load? And what does webpack create for you? And how?</li>
-</ul>
+                        <p>So the great thing about React JS is that it runs on the server too. But that does not mean you can just create any app and run it on the server. You have to make some decisions on the architecture. The reason is that even though React JS and the components run on the server, you might be having dependencies in those components that does not run on the server.</p>
+<h2 id="injecting-state">Injecting state</h2>
+<p>One of the most important decisions you make is to inject the state of your application through the top component. This basically means that your components does not have any external dependencies at all. All they need to know comes through this injected state.</p>
+<p>This cookbook is not about isomorphic apps, but let us take a look at an example. We will not use ES6 syntax here because Node JS does not support it yet.</p>
+<p><em>main.js (client)</em></p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> React = <span class="hljs-built_in">require</span>(<span class="hljs-string">'react'</span>);
+<span class="hljs-keyword">var</span> AppState = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./client/AppState.js'</span>);
+<span class="hljs-keyword">var</span> App = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./App.js'</span>);
+
+React.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">App</span> <span class="hljs-attribute">state</span>=<span class="hljs-value">{AppState}</span>/&gt;</span>, document.body);</span>
+</code></pre>
+<p><em>router.js (server)</em></p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> React = <span class="hljs-built_in">require</span>(<span class="hljs-string">'react'</span>);
+<span class="hljs-keyword">var</span> App = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./App.js'</span>);
+<span class="hljs-keyword">var</span> AppState = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./server/AppState.js'</span>);
+<span class="hljs-keyword">var</span> index = <span class="hljs-string">'&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;{{component}}&lt;/body&gt;&lt;/html&gt;'</span>;
+
+app.get(<span class="hljs-string">'/'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(req, res)</span> </span>{
+  <span class="hljs-keyword">var</span> componentHtml = React.renderToString(App({state: AppState}));
+  <span class="hljs-keyword">var</span> html = index.replace(<span class="hljs-string">'{{component}}'</span>, componentHtml);
+  res.type(<span class="hljs-string">'html'</span>);
+  res.send(html);
+});
+</code></pre>
+<p>So this was a very naive and simple way of showing it, but what yo should notice here is that we use the same <strong>App.js</strong> file on the client and server, but we have two different ways of producing the state.</p>
 
                     
                     </section>
@@ -712,10 +733,10 @@
         </div>
 
         
-        <a href="./Creating-a-common-bundle.html" class="navigation navigation-prev " aria-label="Previous page: Creating a common chunk"><i class="fa fa-angle-left"></i></a>
+        <a href="./Lazy-loaded-entry-points.html" class="navigation navigation-prev " aria-label="Previous page: Lazy loaded entry points"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="./Authoring-libraries.html" class="navigation navigation-next " aria-label="Next page: Authoring libraries"><i class="fa fa-angle-right"></i></a>
+        <a href="./Wing-It-Like-a-Pro.html" class="navigation navigation-next " aria-label="Next page: Wing It Like A Pro"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
