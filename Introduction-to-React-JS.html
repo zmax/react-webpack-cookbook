@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="2" data-basepath="." data-revision="Tue Apr 21 2015 15:26:43 GMT+0300 (EEST)">
+    <div class="book" data-level="2" data-basepath="." data-revision="Fri Apr 24 2015 18:45:17 GMT+0300 (EEST)">
     
 
 <div class="book-summary">
@@ -654,16 +654,16 @@
 <p>The greatest and worst feature of frameworks is that they sort of cage you in. As long as you are doing what they expect you to do within their boundaries, everything is fine. It is only after you start to reach beyond those boundaries that problems begin to appear. In a library driven approach you aren&apos;t as bound. Initially you might not be as fast or efficient but over time as problems become harder, you will have more choices available.</p>
 <h3 id="basics-of-jsx">Basics of JSX</h3>
 <p>React provides a component centric approach to frontend development. You will design your application as smaller components, each of which has it own purpose. Taken to the extreme a component may contain its logic, layout and basic styling. To give you an example of JSX:</p>
-<pre><code class="lang-jsx">...
-<TodoItem className="urgent" owner="{owner}" task="Make a dinner">
+<pre><code class="lang-html">...
+<span class="hljs-tag">&lt;<span class="hljs-title">TodoItem</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&apos;urgent&apos;</span> <span class="hljs-attribute">owner</span>=<span class="hljs-value">{owner}</span> <span class="hljs-attribute">task</span>=<span class="hljs-value">&apos;Make a dinner&apos;</span> /&gt;</span>
 ...
-</TodoItem></code></pre>
+</code></pre>
 <p>You can see a couple of basic features of JSX here. Instead of using <code>class</code>, we&apos;ll use the JavaScript equivalent. In addition we have defined a couple of custom properties in form of <code>owner</code> and <code>task</code>. <code>owner</code> is something that is injected from a variable named <code>owner</code> that&apos;s within the same scope as our JSX. For <code>task</code> we provide a fixed value.</p>
 <p>In practice you would most likely structure this a little differently to fit your data model better. That goes a little beyond basic React, though.</p>
 <p>We can mix normal JavaScript code within those {}&apos;s. We can use this idea to render a list of <code>TodoItem</code>s like this (ES syntax):</p>
-<pre><code class="lang-jsx"><ul>{todoItems.map((todoItem, i) =&gt;
-    <li key="{&apos;todoitem&apos;" +="" i}=""><TodoItem owner="{todoItem.owner}" task="{todoItem.task}"></TodoItem></li>
-)}</ul>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">ul</span>&gt;</span>{todoItems.map((todoItem, i) =&gt;
+    <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">key</span>=<span class="hljs-value">{&apos;todoitem&apos;</span> + <span class="hljs-attribute">i</span>}&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">TodoItem</span> <span class="hljs-attribute">owner</span>=<span class="hljs-value">{todoItem.owner}</span> <span class="hljs-attribute">task</span>=<span class="hljs-value">{todoItem.task}</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+)}<span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span>
 </code></pre>
 <p>You probably noticed something special here. What is that <code>key</code> property about? It is something that tells React the exact ordering of your items. If you don&apos;t provide unique keys for list items like this, React will warn you as it won&apos;t be able to guarantee the correct ordering otherwise.</p>
 <p>This has to do with the fact that React actually implements something known as Virtual DOM (VDOM for short) on top of actual DOM. It is a subset of DOM that allows React to optimize its rendering. The primary advantage of this approach is that it allows React to eschew a lot of legacy our good old DOM has gained through years. This is the secret to React&apos;s high performance.</p>
