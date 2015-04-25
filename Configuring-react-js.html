@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="2.1" data-basepath="." data-revision="Sat Apr 25 2015 11:53:24 GMT+0300 (EEST)">
+    <div class="book" data-level="2.1" data-basepath="." data-revision="Sat Apr 25 2015 14:46:35 GMT+0300 (EEST)">
     
 
 <div class="book-summary">
@@ -654,7 +654,7 @@
 <p><em>In any file</em></p>
 <pre><code class="lang-javascript">import React from <span class="hljs-string">&apos;react&apos;</span>;
 
-export <span class="hljs-keyword">default</span> <span class="hljs-keyword">class</span> Hellow extends React.Component {
+export <span class="hljs-keyword">default</span> <span class="hljs-keyword">class</span> Hello extends React.Component {
   render() {
     <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">h1</span>&gt;</span>Hello world<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>;</span>
   }
@@ -662,12 +662,12 @@ export <span class="hljs-keyword">default</span> <span class="hljs-keyword">clas
 </code></pre>
 <p><strong>main.js</strong></p>
 <pre><code class="lang-javascript">import React from <span class="hljs-string">&apos;react&apos;</span>;
-import Component from <span class="hljs-string">&apos;./component&apos;</span>;
+import Hello from <span class="hljs-string">&apos;./component&apos;</span>;
 
 main();
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
-    React.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">Component</span> /&gt;</span>, document.getElementById(&apos;app&apos;));
+    React.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">Hello</span> /&gt;</span>, document.getElementById(&apos;app&apos;));
 }
 </span></code></pre>
 <p><strong>build/index.html</strong></p>
