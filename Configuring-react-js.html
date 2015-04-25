@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="2.1" data-basepath="." data-revision="Sat Apr 25 2015 11:09:48 GMT+0300 (EEST)">
+    <div class="book" data-level="2.1" data-basepath="." data-revision="Sat Apr 25 2015 11:24:09 GMT+0300 (EEST)">
     
 
 <div class="book-summary">
@@ -662,8 +662,8 @@ export <span class="hljs-keyword">default</span> React.createClass({
 ;
 </code></pre>
 <h2 id="converting-jsx">Converting JSX</h2>
-<p>To use the JSX syntax you will need webpack to transform your JavaScript. This is the job of a loader.</p>
-<p><code>npm install jsx-loader --save-dev</code></p>
+<p>To use the JSX syntax you will need webpack to transform your JavaScript. This is the job of a loader. We&apos;ll use <a href="https://babeljs.io/" target="_blank">Babel</a> as it&apos;s nice and has plenty of features.</p>
+<p><code>npm install babel-loader --save-dev</code></p>
 <p>Now we have to configure webpack to use this loader.</p>
 <p><em>webpack.config.js</em></p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;path&apos;</span>);
@@ -676,7 +676,7 @@ export <span class="hljs-keyword">default</span> React.createClass({
   <span class="hljs-built_in">module</span>: {
     loaders: [{
       test: <span class="hljs-regexp">/\.jsx?$/</span>, <span class="hljs-comment">// A regexp to test the require path. accepts either js or jsx</span>
-      loader: <span class="hljs-string">&apos;jsx?harmony&apos;</span> <span class="hljs-comment">// The module to load. &quot;jsx&quot; is short for &quot;jsx-loader&quot;</span>
+      loader: <span class="hljs-string">&apos;babel&apos;</span> <span class="hljs-comment">// The module to load. &quot;babel&quot; is short for &quot;babel-loader&quot;</span>
     }]
   }
 };
@@ -696,8 +696,6 @@ export <span class="hljs-keyword">default</span> React.createClass({
 });
 </span></code></pre>
 <p>We have now changed the return statement of our render method to use JSX syntax. Run <code>npm run dev</code> in the console and refresh the page, unless you are already running.</p>
-<h2 id="seriously-consider-javascript-next">Seriously consider JavaScript next</h2>
-<p>Instead of using a specific JSX loader you can use Babel that also gives you tomorrows JavaScript today. Read more about that <a href="Javascript-next">here</a>.</p>
 
                     
                     </section>

@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="5.3" data-basepath="." data-revision="Sat Apr 25 2015 11:09:48 GMT+0300 (EEST)">
+    <div class="book" data-level="5.3" data-basepath="." data-revision="Sat Apr 25 2015 11:24:09 GMT+0300 (EEST)">
     
 
 <div class="book-summary">
@@ -647,29 +647,7 @@
                 
                     <section class="normal" id="section-">
                     
-                        <p>An alternative to installing the <code>jsx-loader</code> is <code>babel-loader</code>. If you have not heard of babel, you must check out <a href="https://babeljs.io/" target="_blank">babel.io</a>. It is a JavaScript transpiler that allows you to use JavaScript functionality that has not yet been implemented in the browser. Included is a JSX transpiler.</p>
-<h2 id="installing-the-babel-loader">Installing the Babel loader</h2>
-<p><code>npm install babel-loader --save-dev</code> and in your config:</p>
-<p><em>webpack.config.js</em></p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;path&apos;</span>);
-<span class="hljs-keyword">var</span> config = {
-  entry: path.resolve(__dirname, <span class="hljs-string">&apos;app/main.js&apos;</span>),
-  output: {
-    path: path.resolve(__dirname, <span class="hljs-string">&apos;build&apos;</span>),
-    filename: <span class="hljs-string">&apos;bundle.js&apos;</span>
-  },
-  <span class="hljs-built_in">module</span>: {
-    loaders: [{
-      test: <span class="hljs-regexp">/\.js$/</span>,
-      loader: <span class="hljs-string">&apos;babel&apos;</span>
-    }]
-  }
-};
-
-<span class="hljs-built_in">module</span>.exports = config;
-</code></pre>
-<p>Now you can use all the functionality Babel provides.</p>
-<h2 id="classes">Classes</h2>
+                        <h2 id="classes">Classes</h2>
 <p>As of React JS 0.13 you will be able to define components as classes.</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">class</span> MyComponent extends React.Component {
   constructor() {
