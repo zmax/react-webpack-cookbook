@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="2.1" data-basepath="." data-revision="Sat Apr 25 2015 11:24:09 GMT+0300 (EEST)">
+    <div class="book" data-level="2.1" data-basepath="." data-revision="Sat Apr 25 2015 11:53:24 GMT+0300 (EEST)">
     
 
 <div class="book-summary">
@@ -654,13 +654,36 @@
 <p><em>In any file</em></p>
 <pre><code class="lang-javascript">import React from <span class="hljs-string">&apos;react&apos;</span>;
 
-export <span class="hljs-keyword">default</span> React.createClass({
-  render: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
-    <span class="hljs-keyword">return</span> React.createElement(<span class="hljs-string">&apos;h1&apos;</span>, <span class="hljs-literal">null</span>, <span class="hljs-string">&apos;Hello world&apos;</span>);
+export <span class="hljs-keyword">default</span> <span class="hljs-keyword">class</span> Hellow extends React.Component {
+  render() {
+    <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">h1</span>&gt;</span>Hello world<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>;</span>
   }
-});
-;
+}
 </code></pre>
+<p><strong>main.js</strong></p>
+<pre><code class="lang-javascript">import React from <span class="hljs-string">&apos;react&apos;</span>;
+import Component from <span class="hljs-string">&apos;./component&apos;</span>;
+
+main();
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    React.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">Component</span> /&gt;</span>, document.getElementById(&apos;app&apos;));
+}
+</span></code></pre>
+<p><strong>build/index.html</strong></p>
+<pre><code class="lang-javascript">&lt;!DOCTYPE html&gt;
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">html</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">meta</span> <span class="hljs-attribute">charset</span>=<span class="hljs-value">&quot;UTF-8&quot;</span>/&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;app&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;http://localhost:8080/webpack-dev-server.js&quot;</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;bundle.js&quot;</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
+</span></code></pre>
 <h2 id="converting-jsx">Converting JSX</h2>
 <p>To use the JSX syntax you will need webpack to transform your JavaScript. This is the job of a loader. We&apos;ll use <a href="https://babeljs.io/" target="_blank">Babel</a> as it&apos;s nice and has plenty of features.</p>
 <p><code>npm install babel-loader --save-dev</code></p>
@@ -684,18 +707,7 @@ export <span class="hljs-keyword">default</span> React.createClass({
 <span class="hljs-built_in">module</span>.exports = config;
 </code></pre>
 <p>Webpack will test each path required in your code. In this project we are using ES6 module loader syntax, which means that the require path of <code>import MyComponent from &apos;./Component.jsx&apos;;</code> is <code>&apos;./Component.jsx&apos;</code>.</p>
-<h2 id="changing-the-component-file-and-running-the-code">Changing the Component file and running the code</h2>
-<p>In the <code>/app</code> folder we now change the filename of our <em>Component.js</em> file to <strong>Component.jsx</strong>.</p>
-<p><em>Component.jsx</em></p>
-<pre><code class="lang-javascript">import React from <span class="hljs-string">&apos;react&apos;</span>;
-
-export <span class="hljs-keyword">default</span> React.createClass({
-  render: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
-    <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">h1</span>&gt;</span>Hello world!<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>
-  }
-});
-</span></code></pre>
-<p>We have now changed the return statement of our render method to use JSX syntax. Run <code>npm run dev</code> in the console and refresh the page, unless you are already running.</p>
+<p>Run <code>npm run dev</code> in the console and refresh the page to see something.</p>
 
                     
                     </section>
