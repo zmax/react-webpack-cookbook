@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="2.2" data-basepath="." data-revision="Thu May 14 2015 17:42:24 GMT+0300 (EEST)">
+    <div class="book" data-level="2.2" data-basepath="." data-revision="Sat Jun 20 2015 09:36:12 GMT+0300 (EEST)">
     
 
 <div class="book-summary">
@@ -655,20 +655,24 @@
 <span class="hljs-keyword">var</span> node_modules = path.resolve(__dirname, <span class="hljs-string">&apos;node_modules&apos;</span>);
 <span class="hljs-keyword">var</span> pathToReact = path.resolve(node_modules, <span class="hljs-string">&apos;react/dist/react.min.js&apos;</span>);
 
-<span class="hljs-keyword">var</span> config = {
-  entry: path.resolve(__dirname, <span class="hljs-string">&apos;app/main.js&apos;</span>),
-  resolve: {
-    alias: {
-      <span class="hljs-string">&apos;react&apos;</span>: pathToReact
-    }
-  },
-  output: {
-    path: path.resolve(__dirname, <span class="hljs-string">&apos;build&apos;</span>),
-    filename: <span class="hljs-string">&apos;bundle.js&apos;</span>
-  },
-  <span class="hljs-built_in">module</span>: {
-    noParse: [pathToReact]
-  }
+config = {
+    entry: [<span class="hljs-string">&apos;webpack/hot/dev-server&apos;</span>, path.resolve(__dirname, <span class="hljs-string">&apos;app/main.js&apos;</span>)],
+    resolve: {
+        alias: {
+          <span class="hljs-string">&apos;react&apos;</span>: pathToReact
+        }
+    },
+    output: {
+        path: path.resolve(__dirname, <span class="hljs-string">&apos;build&apos;</span>),
+        filename: <span class="hljs-string">&apos;bundle.js&apos;</span>,
+    },
+    <span class="hljs-built_in">module</span>: {
+        loaders: [{
+            test: <span class="hljs-regexp">/\.jsx?$/</span>,
+            loader: <span class="hljs-string">&apos;babel&apos;</span>
+        }],
+        noParse: [pathToReact]
+    }    
 };
 
 <span class="hljs-built_in">module</span>.exports = config;
