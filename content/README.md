@@ -1,21 +1,21 @@
-[Gitbook version](http://christianalfoni.github.io/react-webpack-cookbook/)
+[Gitbook 英文原版](http://christianalfoni.github.io/react-webpack-cookbook/)
 
-> In case you want to contribute, please create a PR against [the main repo](https://github.com/christianalfoni/react-webpack-cookbook) or contact us through [the issue tracker](https://github.com/christianalfoni/react-webpack-cookbook/issues).
+> 如果你想修改中文版，请提交PR [中文版本](https://github.com/fakefish/react-webpack-cookbook) 或者在 [原 Repo](https://github.com/christianalfoni/react-webpack-cookbook/issues) 中提 Issues。
 
-The purpose of this cookbook is to guide you into the world of React and Webpack. Both are powerful technologies and when used together, frontend development becomes a joy.
+这本小书的目的是引导你进入 React 和 Webpack 的世界。他们两个都是非常有用的技术，如果同时使用他们，前端开发会更加有趣。
 
-The cookbook should have something to offer for all skill levels. If you are interested in just React, skip the Webpack part and vice versa. A more tutorial oriented approach is available in the form of [SurviveJS - Webpack and React](https://github.com/survivejs/webpack_react) book.
+这本小书会提供所有相关的技能。如果你只是对 React 感兴趣，那可以跳过 Webpack 相关的内容，反之亦然。 如果想学习更多的相关知识可以移步 [SurviveJS - Webpack and React](https://github.com/survivejs/webpack_react)。 
 
 ## React
 
-React is a library that greatly simplifies component development. Once you understand its basics, you can build your own stack around it. This is in contrast to frameworks, such as Angular, that try to offer everything and a kitchen sink.
+React 是一个能够让开发模块变成简单的库。一旦你理解他的工作原理，那你就可以用它搭建自己的程序，这是不同类似 Angular 那种试着包揽一切的框架不同的地方。
 
-[The official tutorial](http://facebook.github.io/react/docs/tutorial.html) is a good starting point if you just want a quick look at the technology.
+如果你想很快过一遍 React 的知识点，那么 [React 官方教程](http://facebook.github.io/react/docs/tutorial.html) 是一个很好的开始。
 
-Perhaps the most intriguing thing about React is that it keeps on challenging traditional web development. It allows us to rethink concepts such as separation of concern. It will also influence on mobile development in the form of React Native (not released yet). React Native will allow native level performance while making it possible to develop apps in a tight realtime preview loop using JavaScript.
+可能 React 最有趣的事是它一直会尝试调整传统的 web 组件的思路。它让我们重新思考关注点的分离。它（[React Native](https://facebook.github.io/react-native/)）也会影响 App 开发。 React Native 提供了一种使用 Javascript 开发原生应用同时保证了原生性能。
 
 ## Webpack
 
-Webpack operates on a lower level. It is a module bundler. In essence it is something that you use to build your project into deliverable components (HTML, CSS, JS). The nice thing about Webpack is that once you initially configure it, it deals with the nasty details for you. This allows you to mix various technologies within your project without a headache.
+Webpack 非常容易操作，它是一个模块合并的工具，本质就是一个能够把各种组件（HTML，CSS，JS）构建成项目。最方便的是你只需要初始化配置一次，Webpack 会替你做那些繁琐的事情，同时也保证了让你可以在项目中混合使用各种技术而不头疼。
 
-If you are completely new to Webpack and want to go through a good introduction, check out [Pete Hunt's guide](https://github.com/petehunt/webpack-howto). You'll find the basics there. This guide merely complements his.
+如果你在 Webpack 方面完全是新手的，但想开始一个简单的教程的话，可以去 [Pete Hunt&apos;s guide](https://github.com/petehunt/webpack-howto)。你可以在那里学习到一些基础的使用，这里只是那边的一个补充。

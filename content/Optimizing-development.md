@@ -1,5 +1,7 @@
 We talked about how you could use the minified versions of your dependencies in development to make the rebundling go as fast as possible. Let us look at a small helper you can implement to make this a bit easier to handle.
 
+之前介绍了如何在开发中使用依赖的压缩版本来让合并尽可能加速，让我们看一下这个小的例子来让你更加轻松去处理：
+
 *webpack.config.js*
 ```javascript
 var webpack = require('webpack');
@@ -32,6 +34,7 @@ var config = {
 // as that is what you use to require the actual node modules 
 // in your code. Then use the complete path to point to the correct
 // file and make sure webpack does not try to parse it
+
 deps.forEach(function (dep) {
   var depPath = path.resolve(node_modules_dir, dep);
   config.resolve.alias[dep.split(path.sep)[0]] = depPath;
