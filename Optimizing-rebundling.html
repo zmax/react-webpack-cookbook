@@ -36,7 +36,7 @@
     <body>
         
         
-    <div class="book" data-level="2.2" data-basepath="." data-revision="Thu Jul 09 2015 09:49:43 GMT+0800 (CST)">
+    <div class="book" data-level="2.2" data-basepath="." data-revision="Thu Jul 09 2015 23:42:13 GMT+0800 (CST)">
     
 
 <div class="book-summary">
@@ -649,10 +649,11 @@
                 
                     <section class="normal" id="section-">
                     
-                        <p>&#x4F60;&#x53EF;&#x80FD;&#x6CE8;&#x610F;&#x5230;&#x5728;&#x5F15;&#x5165; React JS &#x5230;&#x4F60;&#x7684;&#x9879;&#x76EE;&#x4E4B;&#x540E;&#xFF0C;&#x7ED9;&#x4F60;&#x7684;&#x5E94;&#x7528;&#x91CD;&#x65B0;&#x5408;&#x5E76;&#x4F1A;&#x82B1;&#x8D39;&#x592A;&#x591A;&#x7684;&#x65F6;&#x95F4;&#x3002;&#x5728;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x4E2D;&#xFF0C;&#x6700;&#x7406;&#x60F3;&#x7684;&#x662F;&#x7F16;&#x8BD1;&#x6700;&#x591A; 200 &#x5230; 800 &#x6BEB;&#x79D2;&#x7684;&#x901F;&#x5EA6;&#xFF0C;&#x53D6;&#x51B3;&#x4E8E;&#x4F60;&#x5728;&#x5F00;&#x53D1;&#x7684;&#x5E94;&#x7528;&#x3002;</p>
+                        <p>You might notice after requiring React JS into your project that the time it takes from a save to a finished rebundle of your application takes more time. In development you ideally want from 200-800 ms rebundle speed, depending on what part of the application you are working on.</p>
+<p>&#x4F60;&#x53EF;&#x80FD;&#x6CE8;&#x610F;&#x5230;&#x5728;&#x5F15;&#x5165; React JS &#x5230;&#x4F60;&#x7684;&#x9879;&#x76EE;&#x4E4B;&#x540E;&#xFF0C;&#x7ED9;&#x4F60;&#x7684;&#x5E94;&#x7528;&#x91CD;&#x65B0;&#x5408;&#x5E76;&#x4F1A;&#x82B1;&#x8D39;&#x592A;&#x591A;&#x7684;&#x65F6;&#x95F4;&#x3002;&#x5728;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x4E2D;&#xFF0C;&#x6700;&#x7406;&#x60F3;&#x7684;&#x662F;&#x7F16;&#x8BD1;&#x6700;&#x591A; 200 &#x5230; 800 &#x6BEB;&#x79D2;&#x7684;&#x901F;&#x5EA6;&#xFF0C;&#x53D6;&#x51B3;&#x4E8E;&#x4F60;&#x5728;&#x5F00;&#x53D1;&#x7684;&#x5E94;&#x7528;&#x3002;</p>
 <h2 id="%E5%9C%A8%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6">&#x5728;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x4E2D;&#x4F7F;&#x7528;&#x538B;&#x7F29;&#x6587;&#x4EF6;</h2>
-<p>Instead of making Webpack go through React JS and all its dependencies, you can override the behavior in development.
-&#x4E3A;&#x4E86;&#x4E0D;&#x8BA9; Webpack &#x53BB;&#x904D;&#x5386; React JS &#x53CA;&#x5176;&#x4F9D;&#x8D56;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x5728;&#x5F00;&#x53D1;&#x4E2D;&#x91CD;&#x5199;&#x5B83;&#x7684;&#x884C;&#x4E3A;&#x3002;</p>
+<p>Instead of making Webpack go through React JS and all its dependencies, you can override the behavior in development.</p>
+<p>&#x4E3A;&#x4E86;&#x4E0D;&#x8BA9; Webpack &#x53BB;&#x904D;&#x5386; React JS &#x53CA;&#x5176;&#x4F9D;&#x8D56;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x5728;&#x5F00;&#x53D1;&#x4E2D;&#x91CD;&#x5199;&#x5B83;&#x7684;&#x884C;&#x4E3A;&#x3002;</p>
 <p><em>webpack.config.js</em></p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;path&apos;</span>);
 <span class="hljs-keyword">var</span> node_modules = path.resolve(__dirname, <span class="hljs-string">&apos;node_modules&apos;</span>);
@@ -680,13 +681,21 @@ config = {
 
 <span class="hljs-built_in">module</span>.exports = config;
 </code></pre>
+<p>We do two things in this configuration:</p>
 <p>&#x6211;&#x4EEC;&#x5728;&#x914D;&#x7F6E;&#x4E2D;&#x505A;&#x4E86;&#x4E24;&#x4EF6;&#x4E8B;&#xFF1A;</p>
+<ol>
+<li><p>Whenever &quot;react&quot; is required in the code it will fetch the minified React JS file instead of going to <em>node_modules</em></p>
+</li>
+<li><p>Whenever Webpack tries to parse the minified file, we stop it, as it is not necessary</p>
+</li>
+</ol>
 <ol>
 <li><p>&#x4E0D;&#x7BA1; &#x201C;React&#x201D; &#x662F;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x5728;&#x4EE3;&#x7801;&#x4E2D;&#x5F15;&#x5165;&#x7684;&#xFF0C;&#x5B83;&#x4F1A;&#x53BB;&#x5339;&#x914D;&#x538B;&#x7F29;&#x540E;&#x7684; React JS &#x6587;&#x4EF6;&#x53D6;&#x4EE3;&#x53BB; <em>node_modules</em> &#x4E2D;&#x904D;&#x5386;&#x3002;</p>
 </li>
 <li><p>&#x4E0D;&#x7BA1; Webpack &#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x8BD5;&#x56FE;&#x662F;&#x89E3;&#x6790;&#x538B;&#x7F29;&#x6587;&#x4EF6;&#xFF0C;&#x6211;&#x4EEC;&#x963B;&#x6B62;&#x5B83;&#xFF0C;&#x544A;&#x8BC9;&#x5B83;&#x90A3;&#x4E0D;&#x662F;&#x5FC5;&#x987B;&#x7684;&#x3002;</p>
 </li>
 </ol>
+<p>Take a look at <a href="Optimizing-development">Optimizing development</a> for more information on this.</p>
 <p>&#x53EF;&#x4EE5;&#x5230; <a href="Optimizing-development">&#x4F18;&#x5316;&#x5F00;&#x53D1;</a> &#x770B;&#x5230;&#x66F4;&#x591A;&#x8FD9;&#x65B9;&#x9762;&#x7684;&#x4FE1;&#x606F;&#x3002;</p>
 
                     
