@@ -84,7 +84,7 @@ module.exports = config;
 
 Webpack will test each path required in your code. In this project we are using ES6 module loader syntax, which means that the require path of `import MyComponent from './Component.jsx';` is `'./Component.jsx'`.
 
-Webpack 会在你的项目中测试所有路径，如果我们项目中使用 ES6 模块加载器语法，比如 `import MyComponent from './Component.jsx';` 是回去匹配 `'./Component.jsx'`。
+Webpack 会在你的项目中测试所有路径，如果我们项目中使用 ES6 模块加载器语法，比如 `import MyComponent from './Component.jsx';` 是会去匹配 `'./Component.jsx'`。
 
 Run `npm run dev` in the console and refresh the page to see something.
 

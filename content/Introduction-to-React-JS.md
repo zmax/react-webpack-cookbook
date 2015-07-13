@@ -212,7 +212,7 @@ Now we can skip that `onChange` handler. That `React.addons.LinkedStateMixin` en
 
 > It would be easy to start expanding the example now. You could for instance provide means to manipulate the contents of the Todo list or start extracting various parts into components of their own. It is up to you to make the app yours. If you are still feeling a bit lost, please read on. This is supposed to be a brief introduction to the topic!
 
-> 现在拓展例子已经非常容易了，你现在应该就可以拓展 Todo 列表，或者把各种组件分离，这取决于你。如果你现在还是觉得不够掌握，那么继续阅读，这节只是话题的一个简介。
+> 现在拓展例子已经非常容易了，你现在应该就可以拓展 Todo 列表，或者把各种组件分离，这取决于你。如果你现在还是觉得不够掌握，那么继续阅读，这节只是话题的一个介绍。
 
 ### 测试
 
@@ -246,7 +246,7 @@ As development of Reflux is quite in flux I won't give you a full example in thi
 
 Reflux 的开发和 Flux 差不多，我就不在这里详细讲述了，我只是想说明如何处理从纯 React 扩大的一种可能的方式。你需要去浏览一些相关看法，然后深入理解那些架构。那些想法都差不多，就是细节不太一样，都有各自的一些缺点有待考略。
 
-### 两端渲染
+### 同构渲染
 
 One of the big features which React provides thanks to its design is so called isomorphic rendering. Back in the day we used to render whole HTML in the backend and provide just that for the client to render. Then we would sprinkle a little JavaScript magic to make things more interactive and so on. After a while the pendulum swung to frontend side. We served minimal amount of HTML to the client and constructed the rest, including routing, using JavaScript entirely on frontend.
 

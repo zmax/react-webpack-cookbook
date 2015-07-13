@@ -4,6 +4,7 @@ If you want to use compiled CSS, there are two loaders available for you. The **
 
 ## 安装和设置加载器
 `npm install less-loader` or `npm install sass-loader`.
+
 `npm install less-loader` 或者 `npm install sass-loader`.
 
 *webpack.config.js*
@@ -38,6 +39,7 @@ var config = {
 
 ## LESS 和 SASS 中的 imports 怎么办?
 If you import one LESS/SASS file from an other, use the exact same pattern as anywhere else. Webpack will dig into these files and figure out the dependencies.
+
 如果你从另外一个文件中导入一个 LESS/SASS 文件，像其他地方一样使用准确的路径，Webpack 会找出那些文件，然后识别里面的依赖。
 
 ```less

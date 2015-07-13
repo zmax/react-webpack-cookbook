@@ -6,6 +6,7 @@ Lets have a look at the simplest setup you can create for your application. Use 
 - You will rarely update the application
 - You are not too concerned about perceived initial loading time
 
+
 - 应用很小
 - 很少会更新应用
 - 你不太关心初始加载时间

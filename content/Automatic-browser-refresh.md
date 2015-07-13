@@ -1,6 +1,6 @@
 When **webpack-dev-server** is running it will watch your files for changes. When that happens it rebundles your project and notifies browsers listening to refresh. To trigger this behavior you need to change your *index.html* file in the `build/` folder.
 
-当运行 **webpack-dev-server** 的时候，它会监听你的文件修改。当项目重新合并之后，会通知浏览器刷新。为了能够处罚这样的行为，你需要把你的 *index.html* 放到 `build/` 文件夹下，然后做这样的修改：
+当运行 **webpack-dev-server** 的时候，它会监听你的文件修改。当项目重新合并之后，会通知浏览器刷新。为了能够触发这样的行为，你需要把你的 *index.html* 放到 `build/` 文件夹下，然后做这样的修改：
 
 *build/index.html*
 ```html

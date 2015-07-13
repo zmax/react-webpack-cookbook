@@ -123,7 +123,7 @@ With this strategy you create a CSS file for each component. It is common to nam
 
 你可以根据这个策略为每个组件创建 CSS 文件，可以让组件名和 CSS 中的 class 使用一个命名空间，来避免一个组件中的一些 class 干扰到另外一些组件的 class。
 
-*app/components/MyComponent.css
+*app/components/MyComponent.css*
 ```css
 .MyComponent-wrapper {
   background-color: #EEE;

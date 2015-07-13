@@ -74,12 +74,12 @@ var utils = require('/utils.js');
 
 The **relative path** is relative to the current file. The **absolute path** is relative to the entry file, which in this case is *main.js*.
 
-**相对路径**是相对当前目录。**绝对路径**是相对入口文件，这个案例中是*main.js*
+**相对路径**是相对当前目录。**绝对路径**是相对入口文件，这个案例中是 *main.js*。
 
 ### 我需要使用文件后缀么？
 
 No, you do not have to use *.js*, but it highlights better what you are requiring. You might have some .js files, and some .jsx files and even images and css can be required by Webpack. It also clearly differs from required node_modules and specific files.
-
+   
 不，你不需要去特意去使用 *.js*，但是如果你引入之后高亮会更好。你可能有一些 .js 文件和一些 .jsx 文件，甚至一些图片和 css 可以用 Webpack 引入，甚至可以直接引入 node_modules 里的代码和特殊文件。
 
 Remember that Webpack is a module bundler! This means you can set it up to load any format you want given there is a loader for it. We'll delve into this topic later on.

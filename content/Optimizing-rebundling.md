@@ -46,8 +46,8 @@ We do two things in this configuration:
 2. Whenever Webpack tries to parse the minified file, we stop it, as it is not necessary
 
 
-1. 不管 “React” 是什么时候在代码中引入的，它会去匹配压缩后的 React JS 文件取代去 *node_modules* 中遍历。
 
+1. 不管 “React” 是什么时候在代码中引入的，它会去匹配压缩后的 React JS 文件取代去 *node_modules* 中遍历。
 2. 不管 Webpack 什么时候试图是解析压缩文件，我们阻止它，告诉它那不是必须的。
 
 Take a look at [Optimizing development](Optimizing-development) for more information on this.

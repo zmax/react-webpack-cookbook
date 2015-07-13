@@ -23,7 +23,7 @@
     * [分离应用和第三方](Split-app-and-vendors.md)
     * [多重入口](Multiple-entry-points.md)
     * [懒加载入口文件](Lazy-loaded-entry-points.md)
-    * [两端渲染](Isomorphic-app.md)
+    * [同构渲染](Isomorphic-app.md)
 * [进阶](Wing-It-Like-a-Pro.md)
     * [优化开发](Optimizing-development.md)
     * [热加载组件](Hot-loading-components.md)

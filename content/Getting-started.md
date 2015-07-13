@@ -1,10 +1,10 @@
 > Before getting started you should make sure you have a recent version of Node.js and NPM installed. See [nodejs.org](http://nodejs.org/) for installation details. We'll use NPM to set up various tools.
 
-> 在开始之前，你需要把你的 Node.js 和 NPM 都更新到最新的版本。访问 [nodejs.org] 查看安装详情。我们将会使用 NPM 安装一些工具。
+> 在开始之前，你需要把你的 Node.js 和 NPM 都更新到最新的版本。访问 [nodejs.org](http://nodejs.org/) 查看安装详情。我们将会使用 NPM 安装一些工具。
 
 Getting started with Webpack is straightforward. I'll show you how to set up a simple project based on it. As a first step, set a directory for your project and hit `npm init` and fill in some answers. That will create a `package.json` for you. Don't worry if some fields don't look ok, you can modify those later.
 
-开始使用 Webpack 非常简单，我会展示给你看一个使用它的一个简单的项目。第一步，为你的项目新建一个文件夹，然后输入 `npm init`，然后填写相关问题。这样会为你创建了 `package.json`，不用担心填错，你可以之后修改它。
+开始使用 Webpack 非常简单，我会展示给你看使用它的一个简单的项目。第一步，为你的项目新建一个文件夹，然后输入 `npm init`，然后填写相关问题。这样会为你创建了 `package.json`，不用担心填错，你可以之后修改它。
 
 ## 安装 Webpack
 
@@ -16,7 +16,7 @@ Next you should get Webpack installed. We'll do a local install and save it as a
 
 Structure your project like this:
 
-项目的目录结构应该是长这样：
+项目的目录结构长这样：
 
 - /app
   - main.js
@@ -29,7 +29,7 @@ Structure your project like this:
 
 In this case we'll create `bundle.js` using Webpack based on our `/app`. To make this possible, let's set up `webpack.config.js`.
 
-我们会使用 Webpack 来自动创建 `bundle.js` 在我们的 `/app` 里。接下来，我们来设置 `webpack.config.js`。
+我们会使用 Webpack 在我们的 `/app` 里来自动创建 `bundle.js` 。接下来，我们来设置 `webpack.config.js`。
 
 ## 设置 Webpack
 

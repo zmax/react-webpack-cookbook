@@ -1,6 +1,6 @@
 Hitting `npm run build` all the time will get boring eventually. Fortunately we can work around that quite easily. Let's set up `webpack-dev-server`.
 
-如果需要一直输入 `npm run build` 确实是一件非常无聊的事情，幸运的是，我们可以把让他安静的运行，让我们设置 `webpack-dev-server`
+如果需要一直输入 `npm run build` 确实是一件非常无聊的事情，幸运的是，我们可以把让他安静的运行，让我们设置 `webpack-dev-server`。
 
 ## 设置 `webpack-dev-server`
 
@@ -20,8 +20,7 @@ As a first step, hit `npm i webpack-dev-server --save`. In addition we'll need t
 
 When you run `npm run dev` from your terminal it will execute the command stated as a value on the **dev** property. This is what it does:
 
-当你在命令行里运行 `npm run dev` 的时候他会执行 **dev** 属性里的值。
-这是这些指令的意思：
+当你在命令行里运行 `npm run dev` 的时候他会执行 **dev** 属性里的值。这是这些指令的意思：
 
 1. `webpack-dev-server` - Starts a web service on localhost:8080
 2. `--devtool eval` - Creates source urls for your code. Making you able to pinpoint by filename and line number where any errors are thrown

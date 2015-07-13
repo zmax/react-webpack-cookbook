@@ -9,7 +9,7 @@ One of the most important decisions you make is to inject the state of your appl
 
 This cookbook is not about isomorphic apps, but let us take a look at an example. We will not use ES6 syntax here because Node JS does not support it yet.
 
-这本小书不是主要讲两端渲染的应用，不过让我们来看一下例子，我们这次不使用 ES6 语法了，因为 Node JS 还不完全支持。
+这本小书不是主要讲同构渲染的应用，不过让我们来看一下例子，我们这次不使用 ES6 语法了，因为 Node JS 还不完全支持。
 
 *main.js (client)*
 ```javascript

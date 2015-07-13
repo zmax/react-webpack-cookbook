@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>两端渲染 | React Webpack cookbook</title>
+        <title>同构渲染 | React Webpack cookbook</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.1.0">
@@ -36,7 +36,7 @@
     <body>
         
         
-    <div class="book" data-level="4.6" data-basepath="." data-revision="Thu Jul 09 2015 23:42:13 GMT+0800 (CST)">
+    <div class="book" data-level="4.6" data-basepath="." data-revision="Sun Jul 12 2015 15:12:49 GMT+0800 (CST)">
     
 
 <div class="book-summary">
@@ -392,7 +392,7 @@
                         
                             <b>4.6.</b>
                         
-                        两端渲染
+                        同构渲染
                     </a>
                 
             
@@ -655,7 +655,7 @@
 <p>One of the most important decisions you make is to inject the state of your application through the top component. This basically means that your components does not have any external dependencies at all. All they need to know comes through this injected state.</p>
 <p>&#x4E00;&#x4E2A;&#x91CD;&#x8981;&#x7684;&#x4E8B;&#x60C5;&#x662F;&#x5E94;&#x7528;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x9876;&#x5C42;&#x7EC4;&#x4EF6;&#x628A;&#x72B6;&#x6001;&#x6CE8;&#x5165;&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x4F60;&#x7684;&#x7EC4;&#x4EF6;&#x6CA1;&#x6709;&#x4E86;&#x4EFB;&#x4F55;&#x7684;&#x5916;&#x90E8;&#x4F9D;&#x8D56;&#xFF0C;&#x4ED6;&#x4EEC;&#x53EA;&#x80FD;&#x901A;&#x8FC7;&#x6CE8;&#x5165;&#x7684;&#x72B6;&#x6001;&#x6765;&#x83B7;&#x53D6;&#x4FE1;&#x606F;&#x3002;</p>
 <p>This cookbook is not about isomorphic apps, but let us take a look at an example. We will not use ES6 syntax here because Node JS does not support it yet.</p>
-<p>&#x8FD9;&#x672C;&#x5C0F;&#x4E66;&#x4E0D;&#x662F;&#x4E3B;&#x8981;&#x8BB2;&#x4E24;&#x7AEF;&#x6E32;&#x67D3;&#x7684;&#x5E94;&#x7528;&#xFF0C;&#x4E0D;&#x8FC7;&#x8BA9;&#x6211;&#x4EEC;&#x6765;&#x770B;&#x4E00;&#x4E0B;&#x4F8B;&#x5B50;&#xFF0C;&#x6211;&#x4EEC;&#x8FD9;&#x6B21;&#x4E0D;&#x4F7F;&#x7528; ES6 &#x8BED;&#x6CD5;&#x4E86;&#xFF0C;&#x56E0;&#x4E3A; Node JS &#x8FD8;&#x4E0D;&#x5B8C;&#x5168;&#x652F;&#x6301;&#x3002;</p>
+<p>&#x8FD9;&#x672C;&#x5C0F;&#x4E66;&#x4E0D;&#x662F;&#x4E3B;&#x8981;&#x8BB2;&#x540C;&#x6784;&#x6E32;&#x67D3;&#x7684;&#x5E94;&#x7528;&#xFF0C;&#x4E0D;&#x8FC7;&#x8BA9;&#x6211;&#x4EEC;&#x6765;&#x770B;&#x4E00;&#x4E0B;&#x4F8B;&#x5B50;&#xFF0C;&#x6211;&#x4EEC;&#x8FD9;&#x6B21;&#x4E0D;&#x4F7F;&#x7528; ES6 &#x8BED;&#x6CD5;&#x4E86;&#xFF0C;&#x56E0;&#x4E3A; Node JS &#x8FD8;&#x4E0D;&#x5B8C;&#x5168;&#x652F;&#x6301;&#x3002;</p>
 <p><em>main.js (client)</em></p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> React = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;react&apos;</span>);
 <span class="hljs-keyword">var</span> AppState = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;./client/AppState.js&apos;</span>);
