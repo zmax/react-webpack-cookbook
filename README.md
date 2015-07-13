@@ -1,29 +1,27 @@
-# react-webpack-cookbook - A cookbook for using Webpack with React JS.
+# React 和 Webpack 小书 - 一本介绍在 React JS 中使用 Webpack 的小书。
 
-> [Go to cookbook](https://christianalfoni.github.io/react-webpack-cookbook/)
+> [查看](https://fakefish.github.io/react-webpack-cookbook/)
 
-## Contributing
+## 贡献
 
-If you notice something to improve, the easiest way to do that is to
+若书中有遗漏或者错误的地方，可以按照下面的方式：
 
-1. Fork this repo
-2. Set up a branch
-3. Make the changes (see `/content`)
-4. Submit a PR
+1. Fork 这个仓库
+2. 切换到 zh-cn 分支
+3. 在 `/content` 里做修改
+4. 提交一个 PR
 
-So all in all it's just a regular GitHub PR flow.
+或者可以到原仓库中 [提 issue](https://github.com/christianalfoni/react-webpack-cookbook/issues/new)。
 
-Alternatively you can [open an issue](https://github.com/christianalfoni/react-webpack-cookbook/issues/new) and we'll look into it.
+注意 `gh-pages` 内容是自动生成的。
 
-Note that `gh-pages` branch and wiki content gets generated based on the main repository content.
+## Gitbook 生成器
 
-## Gitbook Generator
-
-The generator converts the wiki content to Gitbook (standalone site). In this case it is pushed to `gh-pages`. Use it as follows:
+生成器会自动生成 wiki 和网站，为了能够让它提交 `gh-pages` 分支，这样使用它：
 
 1. `npm install`
 2. `npm run generate-gitbook`
 
-This should generate `/gh-pages`. You can serve that directory through some static server (ie. hit `serve` at `/gh-pages`).
+它会自动生成 `/gh-pages`，你可以直接通过文件系统来访问。
 
-It is possible to deploy the book by hitting `npm run deploy-gitbook`. This will update `gh-pages` branch.
+如果要发布内容，那么输入 `npm run deploy-gitbook`，它会自动更新 `gh-pages` 分支。
