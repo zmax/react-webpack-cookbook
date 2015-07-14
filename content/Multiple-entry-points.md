@@ -47,4 +47,4 @@ module.exports = config;
 ```
 This configuration will create three files in the `dist/` folder. **app.js**, **mobile.js** and **vendors.js**. Most of the code in the **mobile.js** file also exists in **app.js**, but that is what we want. We will never load **app.js** and **mobile.js** on the same page.
 
-这个配置会在 `dist/` 文件夹下创建三个文件：**app.js**、**mobile.js**和**vendors.js**，大部分的代码在**mobile.js**文件中，也有一部分在 **app.js** 中，不过这是我们需要的，我们不会在同一个页面中同时加载 **app.js** 和 **app.js**。
+这个配置会在 `dist/` 文件夹下创建三个文件：**app.js**、**mobile.js**和**vendors.js**，大部分的代码在**mobile.js**文件中，也有一部分在 **app.js** 中，不过这是我们需要的，我们不会在同一个页面中同时加载 **app.js** 和 **mobile.js**。
