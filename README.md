@@ -1,6 +1,6 @@
 # React 和 Webpack 小书 - 一本介绍在 React JS 中使用 Webpack 的小书。
 
-> [查看](https://fakefish.github.io/react-webpack-cookbook/)
+> [中文版](https://fakefish.github.io/react-webpack-cookbook/)
 
 ## 贡献
 
