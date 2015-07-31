@@ -1,6 +1,6 @@
 In web development we deal with a lot of small technical artifacts. You use HTML to describe page structure, CSS how to style it and JavaScript for logic. Or you can replace HTML with something like Jade, CSS with Sass or LESS, JavaScript with CoffeeScript, TypeScript and the ilk. In addition you have to deal with project dependencies (ie. external libraries and such).
 
-在 Web 开发历程上，我们构建了很多小型的技术解决方案，比如用 HTML 去描述页面结构，CSS 去描述页面样式，Javascript 去描述页面逻辑，或者你也可以用一些比如 Jade 去取代 HTML，用 Sass 或 Less 去取代CSS，用 CoffeeScript 或者 TypeScript 之类的去取代 Javascript，不过项目中的依赖可能是一件比较烦恼的事情。（需要安装额外很多的库）
+在 Web 开发历程上，我们构建了很多小型的技术解决方案，比如用 HTML 去描述页面结构，CSS 去描述页面样式，JavaScript 去描述页面逻辑，或者你也可以用一些比如 Jade 去取代 HTML，用 Sass 或 Less 去取代CSS，用 CoffeeScript 或者 TypeScript 之类的去取代 JavaScript，不过项目中的依赖可能是一件比较烦恼的事情。（需要安装额外很多的库）
 
 There are good reasons why we use these various technologies. Regardless of what we use, however, we still want to end up with something that can be run on the browsers of the clients. This is where build systems come in. Historically speaking there have been many. [Make](https://en.wikipedia.org/wiki/Make_%28software%29) is perhaps the most known one and still a viable option in many cases. In the world of frontend development particularly [Grunt](http://gruntjs.com/) and [Gulp](http://gulpjs.com/) have gained popularity. Both are made powerful by plugins. [NPM](https://www.npmjs.com/), the Node.js package manager, is full of those.
 
@@ -93,7 +93,7 @@ Given the configuration is code you can always just hack it if you run into trou
 
 Dealing with JavaScript modules has always been a bit of a problem given the language actually doesn't have a concept of module till ES6. Ergo we are stuck with the 90s when it comes to browser environment. Various solutions, including [AMD](http://browserify.org/), have been proposed. In practice it can be useful just to use CommonJS, the Node.js format, and let tooling deal with the rest. The advantage is that you can often hook into NPM and avoid reinventing the wheel.
 
-处理 Javascript 模块一直是一个大问题，因为这个语言在 ES6 之前没有这方面的概念。因此我们还是停留在90年代，各种解决方案，比如提出了 [AMD](http://browserify.org/)。在实践中只使用 CommonJS （ Node.js 所采用的格式）会比较有帮助，而让工具去处理剩下的事情。它的优势是你可以发布到 NPM 上来避免重新发明轮子。
+处理 JavaScript 模块一直是一个大问题，因为这个语言在 ES6 之前没有这方面的概念。因此我们还是停留在90年代，各种解决方案，比如提出了 [AMD](http://browserify.org/)。在实践中只使用 CommonJS （ Node.js 所采用的格式）会比较有帮助，而让工具去处理剩下的事情。它的优势是你可以发布到 NPM 上来避免重新发明轮子。
 
 [Browserify](http://browserify.org/) solves this problem. It provides a way to bundle CommonJS modules together. You can hook it up with Gulp. In addition there are tons of smaller transformation tools that allow you to move beyond the basic usage (ie. [watchify](https://www.npmjs.com/package/watchify) provides a file watcher that creates bundles for you during development automatically). This will save some effort and no doubt is a good solution up to a point.
 

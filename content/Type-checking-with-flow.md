@@ -1,6 +1,6 @@
 If you come to JavaScript from other programming languages you are familiar with types. You have types in JavaScript too, but you do not have to specify these types when declaring variables, receiving arguments etc. This is one of the things that makes JavaScript great, but at the same time not so great.
 
-如果你是从其他你更熟悉类型的编程语言转到 JavaScript 的，那么，你也可以在 Javascript 中使用类型，不过你不需要在声明变量或者接收参数的时候指定类型。这可以让你的代码更加优雅，但是不是最优雅的。
+如果你是从其他你更熟悉类型的编程语言转到 JavaScript 的，那么，你也可以在 JavaScript 中使用类型，不过你不需要在声明变量或者接收参数的时候指定类型。这可以让你的代码更加优雅，但是不是最优雅的。
 
 Specifically when working on very large projects with many developers type checking gives stability to your project, much like a good test does. So using **Flow** is definitely not a requirement. It is for developers who depends on type checking as more of a routine and for the before mentioned large projects with many developers. Webpack makes it easy to include **Flow** in your workflow.
 

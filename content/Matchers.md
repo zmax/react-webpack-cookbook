@@ -7,4 +7,4 @@
 
 * `{ test: /\.js$/, loader: 'babel-loader' }` - 只匹配 .js
 * `{ test: /\.(js|jsx)$/, loader: 'babel-loader' }` - 匹配 js 和 jsx
-* 一般来说它就是一段 Javascript 的正则，所以按照标准来即可
+* 一般来说它就是一段 JavaScript 的正则，所以按照标准来即可

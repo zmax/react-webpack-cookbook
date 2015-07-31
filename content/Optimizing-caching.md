@@ -1,6 +1,6 @@
 When users hit the URL of your application they will need to download different assets. CSS, JavaScript, HTML, images and fonts. The great thing about Webpack is that you can stop thinking how you should download all these assets. You can do it through JavaScript.
 
-当用户输入你应用的地址的时候，他们需要去下载不同的资源，比如 CSS、Javascript、HTML、图片和字体。不过 Webpack 做了一件事情，让你不用去考虑如何不用下载全部资源。
+当用户输入你应用的地址的时候，他们需要去下载不同的资源，比如 CSS、JavaScript、HTML、图片和字体。不过 Webpack 做了一件事情，让你不用去考虑如何不用下载全部资源。
 
 > OccurenceOrderPlugin
 

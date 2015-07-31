@@ -115,7 +115,7 @@ import './style.css';
 
 You divide your modules by folders and include both CSS and JavaScript files in those folders. Again, the imported CSS is included in each entry bundle when running in production. 
 
-你把你的模块用文件夹分离，每个文件夹有各自的 CSS 和 Javascript 文件。再次，当应用发布的时候，导入的 CSS 已经加载到每个入口文件中。
+你把你的模块用文件夹分离，每个文件夹有各自的 CSS 和 JavaScript 文件。再次，当应用发布的时候，导入的 CSS 已经加载到每个入口文件中。
 
 ### 具体的组件
 

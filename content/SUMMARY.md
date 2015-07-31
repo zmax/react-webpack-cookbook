@@ -27,7 +27,7 @@
 * [进阶](Wing-It-Like-a-Pro.md)
     * [优化开发](Optimizing-development.md)
     * [热加载组件](Hot-loading-components.md)
-    * [使用下一代 Javascript](Javascript-next.md)
+    * [使用下一代 JavaScript](JavaScript-next.md)
     * [优化缓存](Optimizing-caching.md)
     * [匹配器](Matchers.md)
     * [懒加载入口](Lazy-loading-entry-points.md)

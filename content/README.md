@@ -12,7 +12,7 @@ React 是一个能够让开发模块变成简单的库。一旦你理解他的�
 
 如果你想很快过一遍 React 的知识点，那么 [React 官方教程](http://facebook.github.io/react/docs/tutorial.html) 是一个很好的开始。
 
-可能 React 最有趣的事是它一直会尝试调整传统的 web 组件的思路。它让我们重新思考关注点的分离。它（[React Native](https://facebook.github.io/react-native/)）也会影响 App 开发。 React Native 提供了一种使用 Javascript 开发原生应用同时保证了原生性能。
+可能 React 最有趣的事是它一直会尝试调整传统的 web 组件的思路。它让我们重新思考关注点的分离。它（[React Native](https://facebook.github.io/react-native/)）也会影响 App 开发。 React Native 提供了一种使用 JavaScript 开发原生应用同时保证了原生性能。
 
 ## Webpack
 
