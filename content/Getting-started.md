@@ -10,7 +10,7 @@ Getting started with Webpack is straightforward. I'll show you how to set up a s
 
 Next you should get Webpack installed. We'll do a local install and save it as a project dependency. This way you can invoke the build anywhere (build server, whatnot). Run `npm i webpack --save-dev`. If you want to run the tool, hit `node_modules/.bin/webpack`.
 
-接下来我们安装 Webpack，我们要把它安装在本地，然后把它作为项目依赖保存下来。这样你可以在任何地方编译（服务端编译之类的）。输入 `npm i wepack --save-dev`。如果你想运行它，就输入 `node_modules/.bin/webpack`。
+接下来我们安装 Webpack，我们要把它安装在本地，然后把它作为项目依赖保存下来。这样你可以在任何地方编译（服务端编译之类的）。输入 `npm i webpack --save-dev`。如果你想运行它，就输入 `node_modules/.bin/webpack`。
 
 ## 目录结构
 
