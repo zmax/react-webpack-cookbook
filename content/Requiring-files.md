@@ -2,7 +2,7 @@
 
 Webpack allows you to use different module patterns, but "under the hood" they all work the same way. All of them also works straight out of the box.
 
-Webpack 允许你使用不同的模块类型，但是 “底层”必须使用同一种实现。所有的模块可以直接在盒外运行。
+Webpack 允许你使用不同的模块类型，但是 “底层”必须使用同一种实现。所有的模块都能够开箱即用。
 
 #### ES6 模块
 
@@ -28,7 +28,7 @@ define(['./MyModule.js'], function (MyModule) {
 
 A module is loaded by filepath. Imagine the following tree structure:
 
-一个模块需要用它的文件路径来加载，看一下下面的这个结构：
+一个模块会按它的文件路径来加载，看一下下面的这个结构：
 
 - /app
   - /modules
