@@ -70,7 +70,7 @@ React.render(<App/>, document.body);
 ```
 So this is just an example. You would probably hook this up to a router, but the important part is using `require.ensure`.
 
-这只是一个例子，你需要把这些写入到一个路由中个，不过重要的事情是使用了 `require.ensure`。
+这只是一个例子，你需要把这些写入到一个路由中，不过重要的事情是使用了 `require.ensure`。
 
 **What is the array on the first argument?**: If you try to lazy load a chunk that depends on an other lazy loaded chunk you can set it as a dependency in the array. Just type in the path to the chunk. E.g. `['./FunnyButton.js']`
 
