@@ -16,7 +16,8 @@ In the *webpack.config.js* file you can add the following loader configuration:
 
 你可以把下面的加載器配置加到 *Webpack.config.js* 檔案中。
 
-*webpack.config.js*
+**webpack.config.js**
+
 ```javascript
 var path = require('path');
 var config = {
@@ -28,7 +29,7 @@ var config = {
   module: {
     loaders: [{
       test: /\.jsx$/,
-      loader: 'jsx'
+      loader: 'babel'
     }, {
       test: /\.css$/, // Only .css files
       loader: 'style!css' // Run both loaders
@@ -44,13 +45,15 @@ Loading a CSS file is a simple as loading any file:
 
 加載一個 CSS 檔案就和加載其他檔案一樣簡單：
 
-*main.js*
+**main.js**
+
 ```javascript
 import './main.css';
 // Other code
 ```
 
-*Component.jsx*
+**Component.jsx**
+
 ```javascript
 import './Component.css';
 import React from 'react';
@@ -78,7 +81,8 @@ In your main entry point, e.g. `app/main.js` you can load up your entire CSS for
 
 在你的主入口檔案中個，比如 `app/main.js` 你可以為整個項目加載所有的 CSS：
 
-*app/main.js*
+**app/main.js**
+
 ```javascript
 import './project-styles.css';
 // 其他 JS 代碼
@@ -88,32 +92,34 @@ The CSS is included in the application bundle and does not need to download.
 
 CSS 就完全包含在合併的應用中，再也不需要重新下載。
 
-
-### 懶加載
+### 預先加載 Lazy loading
 
 If you take advantage of lazy loading by having multiple entry points to your application, you can include specific CSS for each of those entry points:
 
 如果你想發揮應用中多重入口檔案的優勢，你可以在每個入口點包含各自的 CSS：
 
-*app/main.js*
+**app/main.js**
+
 ```javascript
 import './style.css';
 // 其他 JS 代碼
 ```
 
-*app/entryA/main.js*
+**app/entryA/main.js**
+
 ```javascript
 import './style.css';
 // 其他 JS 代碼
 ```
 
-*app/entryB/main.js*
+**app/entryB/main.js**
+
 ```javascript
 import './style.css';
 // 其他 JS 代碼
 ```
 
-You divide your modules by folders and include both CSS and JavaScript files in those folders. Again, the imported CSS is included in each entry bundle when running in production. 
+You divide your modules by folders and include both CSS and JavaScript files in those folders. Again, the imported CSS is included in each entry bundle when running in production.
 
 你把你的模組用檔案夾分離，每個檔案夾有各自的 CSS 和 JavaScript 檔案。再次，當應用發佈的時候，導入的 CSS 已經加載到每個入口檔案中。
 
@@ -123,14 +129,16 @@ With this strategy you create a CSS file for each component. It is common to nam
 
 你可以根據這個策略為每個組件創建 CSS 檔案，可以讓組件名和 CSS 中的 class 使用一個命名空間，來避免一個組件中的一些 class 干擾到另外一些組件的 class。
 
-*app/components/MyComponent.css*
+**app/components/MyComponent.css**
+
 ```css
 .MyComponent-wrapper {
   background-color: #EEE;
 }
 ```
 
-*app/components/MyComponent.jsx*
+**app/components/MyComponent.jsx**
+
 ```
 import './MyComponent.css';
 import React from 'react';
@@ -152,7 +160,8 @@ With "React Native" you do not use stylesheets at all, you only use the *style-a
 
 在 “React Native” 中你不再需要使用任何 CSS 檔案，你只需要使用 *style 屬性*，可以把你的 CSS 定義成一個對象，那樣就可以根據你的項目重新來考略你的 CSS 策略。
 
-*app/components/MyComponent.jsx*
+**app/components/MyComponent.jsx**
+
 ```javascript
 import React from 'react';
 

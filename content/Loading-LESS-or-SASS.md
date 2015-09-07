@@ -3,11 +3,11 @@
 如果你想使用編譯 CSS，這裡有兩種可用的加載器：**less-loader** 和 **sass-loader**，看你喜歡哪種。下面是如何設置。
 
 ## 安裝和設置加載器
+
 `npm install less-loader` or `npm install sass-loader`.
 
-`npm install less-loader` 或者 `npm install sass-loader`.
+**webpack.config.js**
 
-*webpack.config.js*
 ```javascript
 var path = require('path');
 var config = {
@@ -19,9 +19,9 @@ var config = {
   module: {
     loaders: [{
       test: /\.jsx$/,
-      loader: 'jsx'
-    }, 
-     
+      loader: 'babel'
+    },
+
     // LESS
     {
       test: /\.less$/,
@@ -38,6 +38,7 @@ var config = {
 ```
 
 ## LESS 和 SASS 中的 imports 怎麼辦?
+
 If you import one LESS/SASS file from an other, use the exact same pattern as anywhere else. Webpack will dig into these files and figure out the dependencies.
 
 如果你從另外一個檔案中導入一個 LESS/SASS 檔案，像其他地方一樣使用準確的路徑，Webpack 會找出那些檔案，然後識別裡面的依賴。
@@ -53,4 +54,3 @@ You can also load LESS files directly from your node_modules directory.
 ```less
 $import "~bootstrap/less/bootstrap";
 ```
-
