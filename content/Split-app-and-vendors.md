@@ -1,6 +1,6 @@
-When your application is depending on other libraries, especially large ones like React JS, you should consider splitting those dependencies into its own vendors bundle. This will allow you to do updates to your application, without requiring the users to download the vendors bundle again. Use this strategy when:
+﻿When your application is depending on other libraries, especially large ones like React JS, you should consider splitting those dependencies into its own vendors bundle. This will allow you to do updates to your application, without requiring the users to download the vendors bundle again. Use this strategy when:
 
-当你的应用依赖其他库尤其是像 React JS 这种大型库的时候，你需要考虑把这些依赖分离出去，这样就能够让用户在你更新应用之后不需要再次下载第三方文件。当满足下面几个情况的时候你就需要这么做了：
+當你的應用依賴其他庫尤其是像 React JS 這種大型庫的時候，你需要考慮把這些依賴分離出去，這樣就能夠讓用戶在你更新應用之後不需要再次下載第三方檔案。當滿足下面幾個情況的時候你就需要這麼做了：
 
 - When your vendors reaches a certain percentage of your total app bundle. Like 20% and up 
 - You will do quite a few updates to your application
@@ -8,10 +8,10 @@ When your application is depending on other libraries, especially large ones lik
 - Users are on mobile
 
 
-- 当你的第三方的体积达到整个应用的 20% 或者更高的时候。
-- 更新应用的时候只会更新很小的一部分
-- 你没有那么关注初始加载时间，不过关注优化那些回访用户在你更新应用之后的体验。
-- 有手机用户。
+- 當你的第三方的體積達到整個應用的 20% 或者更高的時候。
+- 更新應用的時候只會更新很小的一部分
+- 你沒有那麼關注初始加載時間，不過關注優化那些回訪用戶在你更新應用之後的體驗。
+- 有手機用戶。
 
 *webpack.production.config.js*
 ```javascript
@@ -25,8 +25,8 @@ var config = {
     
     // Since react is installed as a node module, node_modules/react,
     // we can point to it directly, just like require('react');
-    // 当 React 作为一个 node 模块安装的时候，
-    // 我们可以直接指向它，就比如 require('react')
+    // 當 React 作為一個 node 模組安裝的時候，
+    // 我們可以直接指向它，就比如 require('react')
     vendors: ['react']
   },
   output: {
@@ -49,9 +49,9 @@ module.exports = config;
 ```
 This configuration will create two files in the `dist/` folder. **app.js** and **vendors.js**.
 
-这些配置会在 `dist/` 文件夹下创建两个文件：**app.js** 和 **vendors.js**。
+這些配置會在 `dist/` 檔案夾下創建兩個檔案：**app.js** 和 **vendors.js**。
 
 #### 重要的事情！
 Remember to add both files to your HTML file, or you will get the error: `Uncaught ReferenceError: webpackJsonp is not defined`.
 
-记住要把这些文件都加入到你的 HTML 代码中，不然你会得到一个错误：`Uncaught ReferenceError: webpackJsonp is not defined`。
+記住要把這些檔案都加入到你的 HTML 代碼中，不然你會得到一個錯誤：`Uncaught ReferenceError: webpackJsonp is not defined`。

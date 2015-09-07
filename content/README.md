@@ -1,21 +1,21 @@
-[Gitbook 英文原版](http://christianalfoni.github.io/react-webpack-cookbook/)
+﻿[Gitbook 英文原版](http://christianalfoni.github.io/react-webpack-cookbook/)
 
-> 如果你想修改中文版，请提交PR [中文版本](https://github.com/fakefish/react-webpack-cookbook) 或者在 [原 Repo](https://github.com/christianalfoni/react-webpack-cookbook/issues) 中提 Issues。
+> 如果你想修改中文版，請提交PR [中文版本](https://github.com/fakefish/react-webpack-cookbook) 或者在 [原 Repo](https://github.com/christianalfoni/react-webpack-cookbook/issues) 中提 Issues。
 
-这本小书的目的是引导你进入 React 和 Webpack 的世界。他们两个都是非常有用的技术，如果同时使用他们，前端开发会更加有趣。
+這本小書的目的是引導你進入 React 和 Webpack 的世界。他們兩個都是非常有用的技術，如果同時使用他們，前端開發會更加有趣。
 
-这本小书会提供所有相关的技能。如果你只是对 React 感兴趣，那可以跳过 Webpack 相关的内容，反之亦然。 如果想学习更多的相关知识可以移步 [SurviveJS - Webpack and React](https://github.com/survivejs/webpack_react)。 
+這本小書會提供所有相關的技能。如果你只是對 React 感興趣，那可以跳過 Webpack 相關的內容，反之亦然。 如果想學習更多的相關知識可以移步 [SurviveJS - Webpack and React](https://github.com/survivejs/webpack_react)。 
 
 ## React
 
-React 是一个能够让开发模块变成简单的库。一旦你理解他的工作原理，那你就可以用它搭建自己的程序，这是不同类似 Angular 那种试着包揽一切的框架不同的地方。
+React 是一個能夠讓開發模組變成簡單的庫。一旦你理解他的工作原理，那你就可以用它搭建自己的程序，這是不同類似 Angular 那種試著包攬一切的框架不同的地方。
 
-如果你想很快过一遍 React 的知识点，那么 [React 官方教程](http://facebook.github.io/react/docs/tutorial.html) 是一个很好的开始。
+如果你想很快過一遍 React 的知識點，那麼 [React 官方教程](http://facebook.github.io/react/docs/tutorial.html) 是一個很好的開始。
 
-可能 React 最有趣的事是它一直会尝试调整传统的 web 组件的思路。它让我们重新思考关注点的分离。它（[React Native](https://facebook.github.io/react-native/)）也会影响 App 开发。 React Native 提供了一种使用 JavaScript 开发原生应用同时保证了原生性能。
+可能 React 最有趣的事是它一直會嘗試調整傳統的 web 組件的思路。它讓我們重新思考關注點的分離。它（[React Native](https://facebook.github.io/react-native/)）也會影響 App 開發。 React Native 提供了一種使用 JavaScript 開發原生應用同時保證了原生性能。
 
 ## Webpack
 
-Webpack 非常容易操作，它是一个模块合并的工具，本质就是一个能够把各种组件（HTML，CSS，JS）构建成项目。最方便的是你只需要初始化配置一次，Webpack 会替你做那些繁琐的事情，同时也保证了让你可以在项目中混合使用各种技术而不头疼。
+Webpack 非常容易操作，它是一個模組合併的工具，本質就是一個能夠把各種組件（HTML，CSS，JS）構建成項目。最方便的是你只需要初始化配置一次，Webpack 會替你做那些繁瑣的事情，同時也保證了讓你可以在項目中混合使用各種技術而不頭疼。
 
-如果你在 Webpack 方面完全是新手的，但想开始一个简单的教程的话，可以去 [Pete Hunt&apos;s guide](https://github.com/petehunt/webpack-howto)。你可以在那里学习到一些基础的使用，这里只是那边的一个补充。
+如果你在 Webpack 方面完全是新手的，但想開始一個簡單的教程的話，可以去 [Pete Hunt&apos;s guide](https://github.com/petehunt/webpack-howto)。你可以在那裡學習到一些基礎的使用，這裡只是那邊的一個補充。

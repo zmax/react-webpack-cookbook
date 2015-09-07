@@ -1,6 +1,6 @@
-When **webpack-dev-server** is running it will watch your files for changes. When that happens it rebundles your project and notifies browsers listening to refresh. To trigger this behavior you need to change your *index.html* file in the `build/` folder.
+﻿When **webpack-dev-server** is running it will watch your files for changes. When that happens it rebundles your project and notifies browsers listening to refresh. To trigger this behavior you need to change your *index.html* file in the `build/` folder.
 
-当运行 **webpack-dev-server** 的时候，它会监听你的文件修改。当项目重新合并之后，会通知浏览器刷新。为了能够触发这样的行为，你需要把你的 *index.html* 放到 `build/` 文件夹下，然后做这样的修改：
+當運行 **webpack-dev-server** 的時候，它會監聽你的檔案修改。當項目重新合併之後，會通知瀏覽器刷新。為了能夠觸發這樣的行為，你需要把你的 *index.html* 放到 `build/` 檔案夾下，然後做這樣的修改：
 
 *build/index.html*
 ```html
@@ -18,7 +18,7 @@ When **webpack-dev-server** is running it will watch your files for changes. Whe
 
 We added a script that refreshes the application when a change occurs. You will also need to add an entry point to your configuration:
 
-我们需要增加一个脚本当发生改动的时候去自动刷新应用，你需要在配置中增加一个入口点。
+我們需要增加一個腳本當發生改動的時候去自動刷新應用，你需要在配置中增加一個入口點。
 
 ```javascript
 var path = require('path');
@@ -35,10 +35,10 @@ module.exports = {
 
 Thats it! Now your application will automatically refresh on file changes.
 
-就是这样！现在你的应用就可以在文件修改之后自动刷新了。
+就是這樣！現在你的應用就可以在檔案修改之後自動刷新了。
 
-## 默认环境
+## 預設環境
 
 In the example above we created our own *index.html* file to give more freedom and control. It is also possible to run the application from **http://localhost:8080/webpack-dev-server/bundle**. This will fire up a default *index.html* file that you do not control. It also fires this file up in an iFrame allowing for a status bar to indicate the status of the rebundling process.
 
-在上面的例子中我们创建了 *index.html* 文件来获取更多的自由和控制。同样也可以从 **http://localhost:8080/webpack-dev-server/bundle** 运行应用。这会触发一个默认的你不能控制的 *index.html* ，它同样会触发一个允许iFrame中显示重合并的过程。
+在上面的例子中我們創建了 *index.html* 檔案來獲取更多的自由和控制。同樣也可以從 **http://localhost:8080/webpack-dev-server/bundle** 運行應用。這會觸發一個預設的你不能控制的 *index.html* ，它同樣會觸發一個允許iFrame中顯示重合併的過程。

@@ -1,4 +1,4 @@
-Webpack has a [few ways](https://github.com/webpack/webpack/issues/595) to load SVG. However the simplest way is through **file-loader**.
+﻿Webpack has a [few ways](https://github.com/webpack/webpack/issues/595) to load SVG. However the simplest way is through **file-loader**.
 
 ## Installation and configuration
 Install the loader: `npm install file-loader --save-dev`.

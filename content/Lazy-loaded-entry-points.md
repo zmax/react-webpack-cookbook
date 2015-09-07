@@ -1,13 +1,13 @@
-It is also possible to lazy load entry points. This means that you load parts of your application as they are requested. A typical scenario for this would be that your users only visits specific parts of the application. And an example of that would be twitter.com. You do not always visit your profile page, so why load the code for that? Here is a summary of requirements:
+﻿It is also possible to lazy load entry points. This means that you load parts of your application as they are requested. A typical scenario for this would be that your users only visits specific parts of the application. And an example of that would be twitter.com. You do not always visit your profile page, so why load the code for that? Here is a summary of requirements:
 
-Webpack 也可以实现懒加载入口文件，意味着应用的一部分只在需要的时候加载，一个典型的例子是用户只有访问一些应用特定的部分，典型的例子是 Twitter.com，你不会一直访问你的个人页，所以为什么要加载那部分的代码？这里有个主要的要求：
+Webpack 也可以實現懶加載入口檔案，意味著應用的一部分只在需要的時候加載，一個典型的例子是用戶只有訪問一些應用特定的部分，典型的例子是 Twitter.com，你不會一直訪問你的個人頁，所以為什麼要加載那部分的代碼？這裡有個主要的要求：
 
 - You have a relatively big application where users can visit different parts of it
 - You do care a lot about initial render time
 
 
-- 你有一个相对比较大的应用，可以让用户可以访问应用的不同部分。
-- 你非常关注初始渲染时间
+- 你有一個相對比較大的應用，可以讓用戶可以訪問應用的不同部分。
+- 你非常關注初始渲染時間
 
 
 *webpack.production.config.js*
@@ -41,9 +41,9 @@ module.exports = config;
 ```
 So we are pretty much back where we started with a split application and vendors bundle. You do not really define your lazy dependencies in a configuration, Webpack automatically understands them when analyzing your code. So let us see how we would lazy load a **profile page**:
 
-所以我们把应用和第三方分离是一件非常漂亮的事，你不需要在配置中设置懒加载依赖，Webpack 会自动理解他们，然后分析你的代码。所以让我们看看我们是如何加载一个 **个人信息页**：
+所以我們把應用和第三方分離是一件非常漂亮的事，你不需要在配置中設置懶加載依賴，Webpack 會自動理解他們，然後分析你的代碼。所以讓我們看看我們是如何加載一個 **個人信息頁**：
 
-*main.js (使用 ES6 语法)*
+*main.js (使用 ES6 語法)*
 ```javascript
 import React from 'react';
 import Feed from './Feed.js';
@@ -70,8 +70,8 @@ React.render(<App/>, document.body);
 ```
 So this is just an example. You would probably hook this up to a router, but the important part is using `require.ensure`.
 
-这只是一个例子，你需要把这些写入到一个路由中，不过重要的事情是使用了 `require.ensure`。
+這只是一個例子，你需要把這些寫入到一個路由中，不過重要的事情是使用了 `require.ensure`。
 
 **What is the array on the first argument?**: If you try to lazy load a chunk that depends on an other lazy loaded chunk you can set it as a dependency in the array. Just type in the path to the chunk. E.g. `['./FunnyButton.js']`
 
-**第一个数组参数是什么？**：如果你尝试去懒加载一段由另一个懒加载的代码加载的代码的话，把它作为依赖写在数组里，就把路径写进去，比如 `['./FunnyButton.js']`
+**第一個數組參數是什麼？**：如果你嘗試去懶加載一段由另一個懶加載的代碼加載的代碼的話，把它作為依賴寫在數組裡，就把路徑寫進去，比如 `['./FunnyButton.js']`

@@ -1,4 +1,4 @@
-## Why use Webpack?
+﻿## Why use Webpack?
 - Minimal configuration for the common workflow
 - Analyzes your project code as chunks that can be rearranged to optimize user experience
 - Especially useful with React JS

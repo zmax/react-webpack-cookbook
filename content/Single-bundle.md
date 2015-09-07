@@ -1,15 +1,15 @@
-Lets have a look at the simplest setup you can create for your application. Use a single bundle when:
+﻿Lets have a look at the simplest setup you can create for your application. Use a single bundle when:
 
-让我们看一下为应用创建的最简单的配置，只有在下面的情况下才使用单入口模式：
+讓我們看一下為應用創建的最簡單的配置，只有在下面的情況下才使用單入口模式：
 
 - You have a small application
 - You will rarely update the application
 - You are not too concerned about perceived initial loading time
 
 
-- 应用很小
-- 很少会更新应用
-- 你不太关心初始加载时间
+- 應用很小
+- 很少會更新應用
+- 你不太關心初始加載時間
 
 
 *webpack.production.config.js*
