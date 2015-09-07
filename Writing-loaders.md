@@ -1,4 +1,4 @@
-Let's say we want a custom Markdown loader. Ie. we would like to do something like `var readme = require('../README.md');` at our JavaScript file and inject some Markdown converted as HTML there.
+﻿Let's say we want a custom Markdown loader. Ie. we would like to do something like `var readme = require('../README.md');` at our JavaScript file and inject some Markdown converted as HTML there.
 
 As it happens doing something like this is quite easy with Webpack. We'll need to implement a little loader for this and hook it up with our Webpack configuration. Consider the example below. I've included syntax highlighting just for the kicks.
 

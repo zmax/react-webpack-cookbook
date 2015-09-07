@@ -1,1 +1,1 @@
-- Split configuration into two files
+﻿- Split configuration into two files
